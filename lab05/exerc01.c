@@ -4,7 +4,7 @@
 
 void count_down(int n){
     if(n == 0) {
-        printf("ACABOU\n");
+        printf("ACABOU!\n");
     }
     else {
         printf("%d\n", n);
@@ -13,6 +13,9 @@ void count_down(int n){
 }
 
 int main(){
-    count_down(5);
+    int n;
+    printf("Insira o numero para contagem regressiva: ");
+    scanf("%d", &n);
+    count_down(n);
     return 0;
 }
