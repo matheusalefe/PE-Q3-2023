@@ -10,7 +10,7 @@ int extrair_tstring(char *a){
         temp = a[tamanho];
         tamanho++;
     }
-    return tamanho;
+    return tamanho-1;
 }
 
 char* revert(char* string){
@@ -19,11 +19,10 @@ char* revert(char* string){
 
     i = t_string = extrair_tstring(string);
     result = malloc(t_string * sizeof(char));
-
+    i--;
     for(c = 0; c < t_string; c++){
+        if(i >= 0) result[c] = string[i];
         i--;
-        if(i > 0) result[c] = string[i];
-        
     } 
     
     result[t_string] = '\0';
