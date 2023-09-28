@@ -22,6 +22,7 @@ void produto_hadamard(double u[], double v[], double resultado[], int t){
 int main(){
     int tamanho;
     double u[100], v[100], resultado[100];
+    //Recebe e valida o tamanho dos vetores
     printf("Digite o tamanho dos vetores: ");
     scanf("%d", &tamanho);
     while(tamanho < 1 || tamanho > 100){
