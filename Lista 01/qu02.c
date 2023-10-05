@@ -3,16 +3,21 @@
 
 void imprimir_primos(int num){
     int i, j, veredito;
-    veredito = 1;
-    for(i = 1; i <= num; i++){
-        for(j = 1; j <= i/2; j++){
-            if(i != 1 && i != j && i % j == 0){
-                veredito = 0;
-            } 
+    for(i = 2; i <= num; i++){
+        for (j = 2; j <= num; j++){
+            if (i != j){
+                if (i % j != 0){
+                    veredito = 0;
+                } else {
+                    veredito = 1;
+                    break;
+                }
+            }
         }
-        if (veredito == 1) {
+        if (veredito == 0){
             printf("%d ", i);
         }
+        veredito = 1;
     }
 
 }
