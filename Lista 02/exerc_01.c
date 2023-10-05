@@ -16,11 +16,11 @@ int busca(int valores[], int n, int chave){
 }
 
 int main(){
-    int valores[MAX], n, chave;
+    int valores[MAX], n, chave, i;
     //Lê o tamanho e os valores do vetor
     printf("Digite o numero de valores que serao lidos: ");
     scanf("%d", &n);
-    for(int i = 0; i < n; i++){
+    for(i = 0; i < n; i++){
         scanf("%d", &valores[i]);
     }
     //Informa a chave
