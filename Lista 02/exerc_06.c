@@ -32,17 +32,6 @@ int validar_simetria(int matriz_1[][MAX], int matriz_tranposta[][MAX], int n_lin
 
 }
 
-void imprime_matriz(int matriz[][MAX], int n_linhas, int n_colunas){
-    int i, j;
-    for (i = 0; i < n_linhas; i++)
-        for (j = 0; j < n_colunas; j++){
-            if (j != n_colunas-1)
-                printf("%d ", matriz[i][j]);
-            else
-                printf("%d\n", matriz[i][j]);
-        }  
-}
-
 int main(){
     int matriz_1[MAX][MAX], matriz_transposta[MAX][MAX], n_linhas, n_colunas, veredito;
     
