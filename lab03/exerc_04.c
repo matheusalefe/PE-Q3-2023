@@ -3,39 +3,67 @@
 #include <string.h>
 #define MAX 300
 
-void le_palavra(char* pPalavra, int* pTamanhoPalavra){
+void le_palavra(char* pPalavra){
     int i;
+    printf("Digite a palavra: ");
     scanf("%s", pPalavra);
-    for(i=0; i<MAX; i++){
-        if(*pPalavra == '\0'){
-            break;
-        }
-    }
-    *pTamanhoPalavra = i;
+    getchar();
 }
 
-void le_frase(char frase[MAX], int* pTamanhoPalavra){
+int coleta_tamanho(char string[MAX]){
+    int i;
+    for(i=0; i<MAX; i++){
+        if(string[i] == '\0') break;
+    }
+    return i;
+}
+
+void le_frase(char frase[MAX]){
     char entrada;
     int i=0;
+    printf("Digite a frase: ");
     while (entrada != '\n'){
         entrada = getchar();
         if(entrada != '\n')
             frase[i++] = entrada;
     }
     frase[i] = '\0';
-    *pTamanhoPalavra = i;
 }
 
-int pesquisa_palavra(char palavra[MAX], char frase[MAX]){
+int pesquisa_palavra(char palavra[MAX],int tPalavra,char frase[MAX], int tFrase){
+    int i=0, j=1,validacao;
+    for(i=0;i<tFrase;i++) {
+        if(i + tPalavra <= tFrase && frase[i] == palavra[0] && validacao != 1){
+            for(j=1;j<tPalavra; j++) {
+                if(frase[i+j] == palavra[j]){
+                    validacao = 1;
+                }else{
+                    validacao = 0;
+                    break;
+                }
+            }
+        }
+    }
+        
 
+    return validacao;
 }
 
 int main(){
     char chave, palavra[MAX], frase[MAX];
-    int tPalavra, tFrase;
-    le_palavra(palavra, &tPalavra);
-    le_frase(frase, &tFrase);
-    printf("Tamanho da palavra: %d\n", tPalavra);
-    printf("Tamanho da frase: %d\n", tFrase);
+    int tPalavra, tFrase, veredito;
+    le_palavra(palavra);
+    le_frase(frase);
+
+    tPalavra = coleta_tamanho(palavra);
+    tFrase = coleta_tamanho(frase);
+
+    veredito = pesquisa_palavra(palavra, tPalavra, frase, tFrase);
+
+    if(veredito == 1){
+        printf("Validacao: sim\n");
+    }else{
+        printf("Validacao: nao\n");
+    }
     return 0;
 }
