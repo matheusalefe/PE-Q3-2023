@@ -28,12 +28,9 @@ void strcat(char* a, char* b){
     c = malloc(tamanho_c * sizeof(char));
 
     for(i = 0; i <= tamanho_c; i++){
-        if (i < tamanho_a) 
-            c[i] = a[i];
-        else if (i >= tamanho_a && i < tamanho_c) 
-            c[i] = b[i - tamanho_a];
-        else 
-            c[i] = '\0';
+        if (i < tamanho_a) c[i] = a[i];
+        else if (i >= tamanho_a && i < tamanho_c) c[i] = b[i - tamanho_a];
+        else c[i] = '\0';
     }
 
     printf("concat: %s\n", c);
